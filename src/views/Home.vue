@@ -12,7 +12,8 @@
       </div>
       <div class="text-sky-900 flex flex-row pt-2 overflow-auto">
         <div class="justify-items-center align-items-center p-2 rounded-md mx-2 text-sky-900">
-          <p>{{ windData }}</p>
+          <p>Direction: {{ windData.direction }}</p>
+          <p>Speed: {{ windData.speed }}</p>
         </div>
       </div>
     </div>
@@ -31,8 +32,16 @@
           </div>
           <h3 class="text-sm font-semibold text-sky-900 mt-1 text-center">Humidity</h3>
         </div>
-        <p>Visibility: {{ atmosphereData.visibility }}</p>
-        <p>Pressure: {{ atmosphereData.pressure }}hPa</p>
+        <div id="progress-bar" class="my-2">
+          <p class="text-center">{{ atmosphereData.pressure }}hPa</p>
+          <div class="flex w-full h-2 bg-sky-300 bg-opacity-60 rounded-full overflow-hidden shadow-md" role="progressbar">
+            <div 
+              class="flex flex-col justify-center rounded-full overflow-hidden bg-sky-800 text-xs text-white text-center whitespace-nowrap transition duration-500" 
+              :style="{ width: (atmosphereData.pressure / 20.5) + '%' }"
+            ></div>
+          </div>
+          <h3 class="text-sm font-semibold text-sky-900 mt-1 text-center">Pressure</h3>
+        </div>
       </div>
     </div>
   </div>
