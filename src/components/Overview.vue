@@ -1,18 +1,15 @@
 <template>
   <div class="text-center">
-    <h1 class="text-3xl">My Location</h1>
-    <h2 class="text-md -mt-1 uppercase text-sky-700">
-      {{ props.city }}
-    </h2>
+    <h1 class="text-3xl text-sky-900">{{ props.city }}</h1>
     <h3 class="text-8xl">
       {{ props.temperature }}º
     </h3>
     <div class="flex flex-row space-x-4 font-light">
-      <h3 class="text-xl text-sky-800">
-        High: {{ props.todayData.high }}º
-      </h3>
-      <h3 class="text-xl text-sky-800">
+      <h3 class="text-xl text-sky-600">
         Low: {{ props.todayData.low }}º
+      </h3>
+      <h3 class="text-xl text-sky-900">
+        High: {{ props.todayData.high }}º
       </h3>
     </div>
   </div>
