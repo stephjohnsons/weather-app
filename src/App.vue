@@ -9,7 +9,7 @@
       </div>
     </header>
     <body class="pb-4">
-      <router-view />
+      <RouterView />
     </body>
     <footer class="mx-4 text-center">
       <p class="text-sky-700 text-sm pb-4">2023 © Created by Stephen.</p>
@@ -18,5 +18,6 @@
 </template>
 
 <script setup>
+import { RouterView } from 'vue-router';
 import Menu from './components/Menu.vue';
 </script>
