@@ -8,56 +8,48 @@ export const data = {
     "timezone_id": "Asia/Kuala_Lumpur"
   },
   "current_observation": {
-    "pubDate": 1703168045,
+    "pubDate": 1703210539,
     "wind": {
-      "chill": 30,
-      "direction": "NE",
-      "speed": 5
+      "chill": 33,
+      "direction": "WSW",
+      "speed": 2
     },
     "atmosphere": {
-      "humidity": 86,
+      "humidity": 78,
       "visibility": 3.98,
       "pressure": 1011.2
     },
     "astronomy": {
-      "sunrise": "7:13 AM",
-      "sunset": "7:09 PM"
+      "sunrise": "7:14 AM",
+      "sunset": "7:10 PM"
     },
     "condition": {
-      "temperature": 27,
+      "temperature": 28,
       "text": "Cloudy",
       "code": 26
     }
   },
   "forecasts": [
     {
-      "day": "Thu",
-      "date": 1703174400,
+      "day": "Fri",
+      "date": 1703260800,
       "high": 33,
-      "low": 25,
+      "low": 24,
       "text": "Cloudy",
       "code": 26
     },
     {
-      "day": "Fri",
-      "date": 1703260800,
-      "high": 32,
-      "low": 24,
-      "text": "Showers",
-      "code": 11
-    },
-    {
       "day": "Sat",
       "date": 1703347200,
-      "high": 32,
-      "low": 25,
+      "high": 33,
+      "low": 24,
       "text": "Showers",
       "code": 11
     },
     {
       "day": "Sun",
       "date": 1703433600,
-      "high": 31,
+      "high": 33,
       "low": 24,
       "text": "Showers",
       "code": 11
@@ -65,7 +57,7 @@ export const data = {
     {
       "day": "Mon",
       "date": 1703520000,
-      "high": 31,
+      "high": 30,
       "low": 24,
       "text": "Showers",
       "code": 11
@@ -73,23 +65,23 @@ export const data = {
     {
       "day": "Tue",
       "date": 1703606400,
-      "high": 32,
-      "low": 25,
+      "high": 33,
+      "low": 24,
       "text": "Thunderstorms",
       "code": 4
     },
     {
       "day": "Wed",
       "date": 1703692800,
-      "high": 32,
-      "low": 24,
+      "high": 31,
+      "low": 25,
       "text": "Thunderstorms",
       "code": 4
     },
     {
       "day": "Thu",
       "date": 1703779200,
-      "high": 34,
+      "high": 33,
       "low": 24,
       "text": "Thunderstorms",
       "code": 4
@@ -97,7 +89,7 @@ export const data = {
     {
       "day": "Fri",
       "date": 1703865600,
-      "high": 33,
+      "high": 32,
       "low": 23,
       "text": "Thunderstorms",
       "code": 4
@@ -113,8 +105,16 @@ export const data = {
     {
       "day": "Sun",
       "date": 1704038400,
-      "high": 32,
-      "low": 24,
+      "high": 33,
+      "low": 22,
+      "text": "Showers",
+      "code": 11
+    },
+    {
+      "day": "Mon",
+      "date": 1704124800,
+      "high": 33,
+      "low": 23,
       "text": "Thunderstorms",
       "code": 4
     }

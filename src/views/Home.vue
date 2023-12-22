@@ -23,9 +23,9 @@
       <div class="justify-items-center align-items-center rounded-md mx-2 text-sky-900">
         <div id="progress-bar" class="mt-2">
           <p class="text-center">{{atmosphereData.humidity}}%</p>
-          <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden" role="progressbar">
+          <div class="flex w-full h-2 bg-sky-300 bg-opacity-60 rounded-full overflow-hidden shadow-md" role="progressbar">
             <div 
-              class="flex flex-col justify-center rounded-full overflow-hidden bg-sky-600 text-xs text-white text-center whitespace-nowrap transition duration-500" 
+              class="flex flex-col justify-center rounded-full overflow-hidden bg-sky-800 text-xs text-white text-center whitespace-nowrap transition duration-500" 
               :style="{ width: atmosphereData.humidity + '%' }"
             ></div>
           </div>
@@ -61,7 +61,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import axios from 'axios';
+import { ref, computed, onMounted } from 'vue';
 import { data } from '../exampleData.js';
 
 import Overview from '@/components/Overview.vue';
@@ -100,26 +101,31 @@ const astronomyData = computed(() => {
 })
 
 const location = ref("kuala_lumpur")
-const url = `https://yahoo-weather5.p.rapidapi.com/weather?location=${location}&format=json&u=c`;
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': process.env.VUE_APP_RAPIDAPI_KEY,
-		'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
-	}
-};
+const weatherData = ref(null);
+const error = ref(null);
 
-// watch(options.fetching, (value) => {
-//   console.log(value);
-// });
+// async function fetchWeatherData() {
+//   const url = `https://yahoo-weather5.p.rapidapi.com/weather?location=${location.value}&format=json&u=c`;
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
+//       'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+//     }
+//   };
 
-// try {
-// 	const response = await fetch(url, options);
-// 	const result = await response.text();
-// 	console.log(result);
-// } catch (error) {
-// 	console.error(error);
+//   try {
+//     const response = await axios.get(url, options);
+//     weatherData.value = response.data;
+//   } catch (err) {
+//     error.value = err;
+//     console.error('API Error:', err);
+//   }
 // }
+
+onMounted(() => {
+  // fetchWeatherData();
+});
 </script>
 
 <style scoped>

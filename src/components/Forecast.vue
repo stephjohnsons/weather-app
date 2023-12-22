@@ -11,7 +11,7 @@
     >
       <p class="font-bold text-center">{{ item.day }}</p>
       <p class="text-center">{{ item.text }}</p>
-      <div class="flex flex-row space-x-2 font-light">
+      <div class="flex flex-row space-x-2 font-light mx-auto justify-center">
         <p class="text-sky-600">L:{{ item.low }}º</p>
         <p>H:{{ item.high }}º</p>
       </div>
