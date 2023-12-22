@@ -100,28 +100,46 @@ const astronomyData = computed(() => {
   return data.current_observation.astronomy
 })
 
+const weatherConditions = computed(() => {
+  const conditionText = data.current_observation.condition.text;
+
+  if (conditionText === "Cloudy" || conditionText === "Showers" || conditionText === "Thunderstorms") {
+    return conditionText;
+  } else {
+    return "Sunny";
+  }
+});
+
+const getImgSrc = computed(() => {
+  return require(`@/assets/conditions/${weatherConditions}`);
+});
+
 const location = ref("kuala_lumpur")
 const weatherData = ref(null);
 const error = ref(null);
 
-// async function fetchWeatherData() {
-//   const url = `https://yahoo-weather5.p.rapidapi.com/weather?location=${location.value}&format=json&u=c`;
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
-//       'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
-//     }
-//   };
+async function fetchWeatherData() {
+  const options = {
+    method: 'GET',
+    url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+    params: {
+      location: 'sunnyvale',
+      format: 'json',
+      u: 'f'
+    },
+    headers: {
+      'X-RapidAPI-Key': '8c0274f42amsh44d91c860b8291cp1cc65ajsnaef3874e862d',
+      'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+    }
+  };
 
-//   try {
-//     const response = await axios.get(url, options);
-//     weatherData.value = response.data;
-//   } catch (err) {
-//     error.value = err;
-//     console.error('API Error:', err);
-//   }
-// }
+  try {
+    const response = await axios.request(options);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 onMounted(() => {
   // fetchWeatherData();
