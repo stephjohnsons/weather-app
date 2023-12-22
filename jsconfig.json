@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["public/src/*"]
-    }
+      "@/*": ["./public/src/*"]
+    },
+    "baseUrl": "./" // Set this to the root directory of your project
   },
   "exclude": ["node_modules", "dist"]
 }
