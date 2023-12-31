@@ -36,9 +36,6 @@
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
-import Menu from './components/Menu.vue';
-import Home from './views/Home.vue';
-import Contact from './views/Contact.vue';
 
 const navigation = [
   { name: 'Weather', href: '/' },
