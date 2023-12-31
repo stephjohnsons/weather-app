@@ -11,8 +11,8 @@
   <div class="text-sky-900 pt-2 mx-2 overflow-auto">
     <p class="font-bold">Latitude: <span class="font-normal">{{ props.locationData.lat }}º</span></p>
     <p class="font-bold">Longitude: <span class="font-normal">{{ props.locationData.long }}º</span></p>
-    <p class="font-bold">Country: <span class="font-normal">{{ props.locationData.country }}</span></p>
-    <p class="font-bold">Timezone: <span class="font-normal">{{ props.locationData.timezone_id }}</span></p>
+    <p class="font-bold">Country: <span id="country" class="font-normal">{{ props.locationData.country }}</span></p>
+    <p class="font-bold">Timezone: <span id="timezone" class="font-normal">{{ props.locationData.timezone_id }}</span></p>
   </div>
 </template>
 

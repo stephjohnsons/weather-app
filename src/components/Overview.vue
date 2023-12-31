@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <h1 class="text-3xl text-sky-900">{{ props.city }}</h1>
-    <h3 class="text-8xl">
+    <h3 id="temperature" class="text-8xl">
       {{ props.temperature }}º
     </h3>
     <div class="flex flex-row space-x-4 font-light">
