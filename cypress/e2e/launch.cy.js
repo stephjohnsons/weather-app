@@ -30,11 +30,24 @@ describe('Launching the App', () => {
         const temperature = parseInt(text, 10);
         expect(Number.isInteger(temperature)).to.be.true;
       })
+    cy.get('#country').contains('span', 'United Kingdom');
+    cy.get('#timezone').contains('span', 'Europe/London');
+  });
 
-    cy.get('#country')
-      .contains('span', 'United Kingdom');
+  it('removes data when search bar text is removed', () => {
+    cy.get('input[type="text"]')
+      .type('Brussels')
+      .should('have.value', 'Brussels');
 
-    cy.get('#timezone')
-      .contains('span', 'Europe/London');
+    cy.get('input[type="text"]').type('{enter}');
+
+    cy.wait(500); 
+
+    cy.contains('h1', 'Brussels');
+    cy.get('#country').contains('span', 'Belgium');
+    cy.get('#timezone').contains('span', 'Europe/Brussels');
+
+    cy.get('input[type="text"]').clear().type('{enter}');
+    cy.contains('p', '👆🏻 Search a city and press enter to see the latest weather updates');
   });
 })
