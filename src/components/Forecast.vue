@@ -55,6 +55,6 @@ const props = defineProps({
 
 const getImgSrc = (item) => {
   const conditionText = item.replace(/^(Partly|Mostly)\s*/, '');
-  return `src/assets/conditions/${conditionText}.svg`;
+  return `/assets/conditions/${conditionText}.svg`;
 };
 </script>
