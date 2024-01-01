@@ -54,12 +54,12 @@ const props = defineProps({
 
 const getWindOne = (item) => {
   const direction = ["North", "South", "East", "West"].includes(item) ? item[0] : item.slice(0, 1);
-  return `/assets/${direction}.svg`;
+  return `assets/${direction}.svg`;
 };
 
 const getWindTwo = (item) => {
   const direction = item.slice(1);
-  return `/assets/${direction}.svg`;
+  return `assets/${direction}.svg`;
 };
 
 const validation = computed(() => {
