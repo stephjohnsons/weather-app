@@ -3,7 +3,7 @@
     <img 
       @click="onInputChange"
       class="mx-3 search-icon"
-      src="../assets/search.svg" 
+      src="/assets/search.svg" 
       height="24" 
       width="24" 
     />
