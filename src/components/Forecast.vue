@@ -55,6 +55,6 @@ const props = defineProps({
 
 const getImgSrc = (item) => {
   const conditionText = item.replace(/^(Partly|Mostly)\s*/, '');
-  return new URL(`/assets/conditions/${conditionText}.svg`, import.meta.url).href;
+  return `assets/${conditionText}.svg`;
 };
 </script>
