@@ -14,6 +14,15 @@
       type="text" 
       placeholder="Search for your city" 
     />
+    <button class="hidden sm:inline px-6 font-medium cursor-pointer transition-all hover:bg-sky-300 rounded-e-md" @click="fetchWeatherData(searchText)">
+      Search
+    </button>
+  </div>
+  <div 
+    class="block sm:hidden bg-sky-700 text-white font-medium shadow-md mx-4 py-1 text-center cursor-pointer transition-all hover:bg-sky-900 rounded-md" 
+    @click="fetchWeatherData(searchText)"
+  >
+    Search
   </div>
   <template v-if="loading">
     <div v-if="!searchText" class="mx-4">
