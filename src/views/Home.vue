@@ -102,34 +102,34 @@ const fetchWeatherData = async (searchQuery) => {
 }
 
 const city = computed(() => {
-  return weatherData.value.location.city;
+  return weatherData.value?.location?.city ?? 'Not available';
 })
 
 const temperature = computed(() => {
-  return weatherData.value.current_observation.condition.temperature
+  return weatherData.value?.current_observation?.condition?.temperature ?? 'N/A';
 })
 
 const todayData = computed(() => {
-  return weatherData.value.forecasts[0]
+  return weatherData.value?.forecasts?.[0] ?? {};
 })
 
 const forecastData = computed(() => {
-  return weatherData.value.forecasts
+  return weatherData.value?.forecasts ?? [];
 })
 
 const windData = computed(() => {
-  return weatherData.value.current_observation.wind
+  return weatherData.value?.current_observation?.wind ?? {};
 })
 
 const atmosphereData = computed(() => {
-  return weatherData.value.current_observation.atmosphere
+  return weatherData.value?.current_observation?.atmosphere ?? {};
 })
 
 const locationData = computed(() => {
-  return weatherData.value.location
+  return weatherData.value?.location ?? {};
 })
 
 const astronomyData = computed(() => {
-  return weatherData.value.current_observation.astronomy
+  return weatherData.value?.current_observation?.astronomy ?? {};
 })
 </script>
