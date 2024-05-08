@@ -30,26 +30,26 @@
     </div>
     <Loading v-else />
   </template>
-  <template v-else>
+  <template>
     <div class="text-sky-900 flex flex-col items-center justify-center px-3 py-2">
       <Overview :city="city" :temperature="temperature" :today-data="todayData" />
     </div>
-    <div class="border border-spacing-1 border-sky-900 mx-4 p-2 rounded-md my-4">
+    <div class="border border-spacing-1 border-sky-900 mx-4 p-2 rounded-md mb-2 sm:my-4">
       <Forecast :forecast-data="forecastData" />
     </div>
-    <div class="flex flex-row mb-4">
-      <div class="border border-spacing-1 border-sky-900 ms-4 p-2 rounded-md w-1/2">
+    <div class="flex flex-col sm:flex-row mb-2 sm:mb-4">
+      <div class="border border-spacing-1 border-sky-900 mx-4 sm:ms-4 sm:me-2 mb-2 sm:mb-0 p-2 rounded-md w-auto sm:w-1/2">
         <Wind :wind-data="windData" />
       </div>
-      <div class="border border-spacing-1 border-sky-900 mx-4 p-2 rounded-md w-1/2">
+      <div class="border border-spacing-1 border-sky-900 mx-4 sm:me-4 sm:ms-2 p-2 rounded-md w-auto sm:w-1/2">
         <Atmosphere :atmosphere-data="atmosphereData" />
       </div>
     </div>
-    <div class="flex flex-row">
-      <div class="border border-spacing-1 border-sky-900 ms-4 p-2 rounded-md w-1/2">
+    <div class="flex flex-col sm:flex-row">
+      <div class="border border-spacing-1 border-sky-900 mx-4 sm:ms-4 sm:me-2 mb-2 sm:mb-0 p-2 rounded-md w-auto sm:w-1/2">
         <Sunrise :astronomy-data="astronomyData" />
       </div>
-      <div class="border border-spacing-1 border-sky-900 mx-4 p-2 rounded-md w-1/2">
+      <div class="border border-spacing-1 border-sky-900 mx-4 sm:me-4 sm:ms-2 p-2 rounded-md w-auto sm:w-1/2">
         <Geography :location-data="locationData" />
       </div>
     </div>
@@ -71,6 +71,35 @@ import Geography from '../components/Geography.vue';
 const searchText = ref("");
 const weatherData = ref({});
 const loading = ref(true);
+
+const fetchWeatherData = async (searchQuery) => {
+  loading.value = true;
+  const queryLocation = searchQuery.trim(); 
+  if (!queryLocation) return; 
+
+  const options = {
+    method: 'GET',
+    url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+    params: {
+      location: queryLocation,
+      format: 'json',
+      u: 'c'
+    },
+    headers: {
+      'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
+      'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await axios.request(options);
+    weatherData.value = response.data;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+}
 
 const city = computed(() => {
   return weatherData.value.location.city;
@@ -103,35 +132,4 @@ const locationData = computed(() => {
 const astronomyData = computed(() => {
   return weatherData.value.current_observation.astronomy
 })
-
-const location = ref("london")
-
-const fetchWeatherData = async (searchQuery) => {
-  loading.value = true;
-  const queryLocation = searchQuery.trim(); 
-  if (!queryLocation) return; 
-
-  const options = {
-    method: 'GET',
-    url: 'https://yahoo-weather5.p.rapidapi.com/weather',
-    params: {
-      location: queryLocation,
-      format: 'json',
-      u: 'c'
-    },
-    headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
-      'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
-    }
-  };
-
-  try {
-    const response = await axios.request(options);
-    weatherData.value = response.data;
-  } catch (error) {
-    console.error(error);
-  } finally {
-    loading.value = false;
-  }
-}
 </script>

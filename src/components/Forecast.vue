@@ -14,7 +14,7 @@
         c-0.05,0.06-0.08,0.12-0.08,0.21v7.34c-0.61,0.09-1.13,0.37-1.56,0.85C12.66,18.37,12.45,18.92,12.45,19.56z"/>
     </svg>
     <p class="pb-1 ps-1 uppercase text-sky-700">
-      10-day forecast
+      <span class="hidden sm:inline">10-day</span> forecast
     </p>
   </div>
   <div class="text-sky-900 flex flex-row pt-2 overflow-auto">
@@ -54,7 +54,7 @@ const props = defineProps({
 })
 
 const getImgSrc = (item) => {
-  const conditionText = item.replace(/^(Partly|Mostly)\s*/, '');
+  const conditionText = item.replace(/^(Partly|Mostly|Scattered)\s*/, '');
   return `assets/${conditionText}.svg`;
 };
 </script>

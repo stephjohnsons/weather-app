@@ -14,9 +14,9 @@
       Wind
     </p>
   </div>
-  <div class="justify-center align-items-center mt-4 flex flex-row">
+  <div class="justify-center align-items-center mt-4 flex flex-col sm:flex-row">
     <div class="mx-auto">
-      <div class="flex flex-row justify-center text-center fill-sky-900 mt-4">
+      <div class="flex flex-row justify-center text-center fill-sky-900 mt-2 sm:mt-4">
         <img 
           height="48"
           width="48"
@@ -33,11 +33,11 @@
           :alt="`${props.windData.direction}`" 
         />
       </div>
-      <h3 class="text-sm font-semibold text-sky-900 mt-1 text-center">Direction</h3>
+      <h3 class="text-sm hidden sm:block font-semibold text-sky-900 mt-1 text-center">Direction</h3>
     </div>
-    <div class="mx-auto mt-2">
+    <div class="mx-auto mt-0 sm:mt-2">
       <p class="text-center text-4xl text-sky-900 mt-4">{{ props.windData.speed }}km/h</p>
-      <h3 class="text-sm font-semibold text-sky-900 mt-1 text-center">Wind</h3>
+      <h3 class="text-sm hidden sm:block font-semibold text-sky-900 mt-1 text-center">Wind</h3>
     </div>
   </div>
 </template>
