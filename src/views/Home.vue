@@ -24,13 +24,13 @@
   >
     Search
   </div>
-  <template v-if="loading">
+  <div v-if="loading">
     <div v-if="!searchText" class="mx-4">
       <p class="text-sky-900 text-2xl text-center py-10">👆🏻 Search a city and press enter to see the latest weather updates.</p>
     </div>
     <Loading v-else />
-  </template>
-  <template>
+  </div>
+  <div v-else>
     <div class="text-sky-900 flex flex-col items-center justify-center px-3 py-2">
       <Overview :city="city" :temperature="temperature" :today-data="todayData" />
     </div>
@@ -53,7 +53,7 @@
         <Geography :location-data="locationData" />
       </div>
     </div>
-  </template>
+  </div>
 </template>
 
 <script setup>
@@ -70,7 +70,7 @@ import Geography from '../components/Geography.vue';
 
 const searchText = ref("");
 const weatherData = ref({});
-const loading = ref(true);
+const loading = ref(false);
 
 const fetchWeatherData = async (searchQuery) => {
   loading.value = true;
@@ -79,7 +79,7 @@ const fetchWeatherData = async (searchQuery) => {
 
   const options = {
     method: 'GET',
-    url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+    // url: 'https://yahoo-weather5.p.rapidapi.com/weather',
     params: {
       location: queryLocation,
       format: 'json',
