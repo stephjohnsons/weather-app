@@ -24,7 +24,7 @@
     <footer class="mx-4 text-center">
       <p class="text-sky-700 text-sm">
         2023 © Created by 
-        <a href="stephjohnsons.com/page/" class="underline">Stephen.</a>
+        <a href="https://stephjohnsons.com/" class="underline">Stephen.</a>
       </p>
       <p class="text-sky-600 text-sm pb-4">
         Weather favicon by 
